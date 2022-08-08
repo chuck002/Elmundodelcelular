@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head th:replace="views/layouts :: head"></head>
+<body>
+    <div th:replace="views/layouts :: navbar"></div>
+    <div class="container">
+        <div style="margin: 75px;">
+            <div class="container" style="border: #000; background-color: rgb(191, 189, 189); color: #000; border-radius: 15px; padding: 20px" >
+                <form th:action="@{/login}" method="post" style="text-align: center;">
+                        <h5>Login</h5>
+                        <div style="margin: 20px;">
+                        <label for="Usuario">
+                            User: <input type="text" placeholder="Usuario" name="user" style="border-radius: 5px;">
+                        </label> 
+                        </div>
+                        <div style="margin: 20px;">
+                        <label for="Password">
+                            Pass: <input type="password" placeholder="Password" name="pass" style="border-radius: 5px;">
+                        </label>
+                        </div>
+                        <div style="margin: 20px;">
+                        <input type="submit" value="Login" style="border-radius: 15px;">
+                        </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="views/layouts :: footer"></div>
+    <div th:replace="views/layouts :: js"></div>
+</body>
+</html>

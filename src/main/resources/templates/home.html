@@ -12,7 +12,7 @@
 
     <div class="row">
 
-              <div style="margin: 20px;">
+              <div style="margin: 50px;">
 
                           <h1 class="my-4">Nuestras<br>Marcas</h1>
                           <select name="marcas" id="idMarcas">
@@ -26,17 +26,16 @@
 
                         <div class="row" id="celularCard">
                                 <div th:each="celular : ${celulares}"  class="col-lg-4 col-md-6 mb-4">
-                                      <div class="card h-100">
-                                        <a href=""><img class="card-img-top" th:src="${celular[1]}" th:alt="${celular[2]}" id="celularImg"></a>
+                                      <div class="card h-100 celularCard" th:id="${celular[4]}" >
+                                        <img class="card-img-top" th:src="${celular[1]}" th:alt="${celular[2]}" id="celularImg">
                                               <div class="card-body">
-                                              <h4 class="card-title">
-                                                  <a href=""></a>
+                                              <h4 class="card-title">   
                                                 </h4>
                                                 <h4 class="card-title">
                                                   <h5><span th:text="${celular[2]}" id="celularTitle"></span></h5>
-                                                  <a href=""></a>
+                                                  
                                                 </h4>
-                                                <h6>Precio: <span th:text="${celular[3]}" id="celularPrice"></span></h5>
+                                                <h6>Precio: $<span th:text="${celular[3]}" id="celularPrice"></span></h5>
                                                 <h6>Marca: <span th:text="${celular[0]}" id="celularBrand"></span></h5>
                                                 <p class="card-text"></p>
                                               </div>

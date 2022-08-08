@@ -26,5 +26,7 @@ public class Usuario {
     private String pass;
     @Column(name = "active")
     private Boolean active;
+    @Column(name="rol")
+    private int rol;
     
 }

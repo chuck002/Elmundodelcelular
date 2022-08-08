@@ -23,4 +23,9 @@ public interface CelularRepository extends CrudRepository<Marca, Integer> {
     @Transactional(readOnly = true)
     @Query(nativeQuery = true, value = "SELECT br.brand as brand, cl.img as imagen, cl.model as name, cl.price as precio, cl.id as id FROM `dbCel`.celular as cl join `dbCel`.brand as br on cl.brand = br.id WHERE cl.brand = :idBrand order by RAND() Limit 15")
     List<Object[]> findByIdBrand(@Param ("idBrand") int idBrand);
+
+    @Transactional(readOnly = true)
+    @Query(nativeQuery = true, value = "SELECT br.brand as brand, cl.img as imagen, cl.model as name, cl.price as precio, cl.id as id FROM `dbCel`.celular as cl join `dbCel`.brand as br on cl.brand = br.id WHERE cl.id = :idCelular order by RAND() Limit 15")
+    List<Object[]> findByCelular(@Param ("idCelular") int idCelular);
+
 }
