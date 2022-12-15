@@ -10,27 +10,31 @@
             
             <table class="table table-success table-striped">
                 <thead>
-                    <th>Id Cuenta</th>
                     <th>Id Pedido</th>
-                    <th>Fecha de Creacion</th>
-                    <th>Precio Final</th>
-                    <th>Ver Pedido</th>
+                    <th>Id Equipo</th>
+                    <th>Marca</th>
+                    <th>Nombre</th>
+                    <th>Caracteristicas</th>
+                    <th>Imagen</th>
+                    <th>Precio</th>
 
                 </thead>
                 <tbody>
-                    <tr th:each="pedido: ${pedidos}">
+                    <tr th:each="pedido: ${pedido}">
                         <th><span th:text="${pedido[0]}"></span></th>
                         <th><span th:text="${pedido[1]}"></span></th>
                         <th><span th:text="${pedido[2]}"></span></th>
                         <th><span th:text="${pedido[3]}"></span></th>
-                        <th><button class="btn btn-success" id="btnVerPedido" th:idPedido="${pedido[1]}">Ver
-                                Pedido</button></th>
+                        <th><span th:text="${pedido[4]}"></span></th>
+                        <!--<th><span th:text="${pedido[5]}"></span></th>-->
+                        <th><img th:src="${pedido[5]}" width="100px" height="100px"/></th>
+                        <th><span th:text="${pedido[6]}"></span></th>
                     </tr>
                 </tbody>
             </table>
     </div>
 </div>
     <div th:replace="views/layouts :: footer"></div>
-    <div th:replace="views/layouts :: jsAdmin"></div>
+    <div th:replace="views/layouts :: js"></div>
 </body>
 </html>

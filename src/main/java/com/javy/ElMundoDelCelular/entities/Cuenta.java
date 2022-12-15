@@ -6,30 +6,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "purchase")
+@Table(name = "Cuenta")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Compra {
-    
+
+public class Cuenta {
+       
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "cel")
-    private String cel;
-    @Column(name = "price")
-    private double price;
-    @Column(name = "quantity")
-    private int quantity;
-    @Column(name = "id_cel")
-    private int id_cel;
-
+    @Column(name = "PedidoActual")
+    private int PedidoActual;
 }

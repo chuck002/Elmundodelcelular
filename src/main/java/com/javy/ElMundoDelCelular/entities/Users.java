@@ -11,15 +11,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="Marca")
+@Table(name="USERS")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Marca {
-    
+public class Users {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "Marca")
-    private String brand;
+    @Column(name = "User")
+    private String user;
+    @Column(name = "Pass")
+    private String pass;
+    @Column(name = "Nombre")
+    private String nombre;
+    @Column(name="rol")
+    private int rol;
+    @Column(name="CuentaNro")
+    private int cuentaNro;
+    
 }

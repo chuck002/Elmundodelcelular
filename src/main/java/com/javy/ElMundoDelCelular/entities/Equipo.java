@@ -11,15 +11,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="Marca")
+@Table(name = "EQUIPO")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Marca {
+public class Equipo {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "Marca")
-    private String brand;
+    private int brand;
+    @Column(name = "Caracteristicas")
+    private String description;
+    @Column(name = "Imagen")
+    private String img;
+    @Column(name = "Nombre")
+    private String model;
+    @Column(name = "Precio")
+    private double price;
+    
 }

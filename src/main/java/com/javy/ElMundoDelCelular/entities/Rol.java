@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Rol")
+@Table(name = "ROL")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,6 +20,6 @@ public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "rol")
+    @Column(name = "Rol")
     private String rol;
 }

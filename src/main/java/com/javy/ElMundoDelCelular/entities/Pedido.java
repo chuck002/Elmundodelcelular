@@ -1,32 +1,33 @@
 package com.javy.ElMundoDelCelular.entities;
 
+import java.util.Date;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="users")
+@Table(name = "PEDIDO")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "user")
-    private String user;
-    @Column(name = "pass")
-    private String pass;
-    @Column(name = "active")
-    private Boolean active;
-    @Column(name="rol")
-    private int rol;
-    
+    @Column(name = "Fecha")
+    private Date fecha;
+    @Column(name = "PrecioFinal")
+    private double precioFinal;
+
 }

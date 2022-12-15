@@ -1,15 +1,84 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-    <head th:replace="views/layouts :: head"></head>
+
+<head th:replace="views/layouts :: head"></head>
+
 <body>
     <div th:replace="views/layouts :: navbarAdmin"></div>
-   
-    <div class="container">
+    <div style="margin: 75px;">
+        <div class="container">
 
-        Binenvenido a Contactanos
+            <h2>Usuarios en el Sistema</h2>
+            <button class="btn btn-primary" id="btnAddUser">Agregar Usuarios</button>
+            <table class="table table-success table-striped">
+                <thead>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>User</th>
+                    <th>Pass</th>
+                    <th>Rol</th>
+                    <th>Compras</th>
+                    <th>Acciones</th>
+
+                </thead>
+                <tbody>
+                    <tr th:each="user: ${listaUsuarios}">
+                        <th><span th:text="${user[0]}"></span></th>
+                        <th><span th:text="${user[1]}"></span></th>
+                        <th><span th:text="${user[2]}"></span></th>
+                        <th><span th:text="${user[3]}"></span></th>
+                        <th><span th:text="${user[4]}"></span></th>
+                        <th><button class="btn btn-success" id="btnComprasUser" th:idUser="${user[0]}">Ver
+                                Pedidos</button></th>
+                        <th><button class="btn btn-danger" id="btnEliminarUser" th:idUser="${user[0]}">Eliminar</button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- ############################## Modal - Add User ############################## -->
+        <div th:fragment="modal-add-user" id="modal-add-user" class="modal fade" tabindex="-1" role="dialog"
+            aria-hidden="true" style="width: 100% !important;">
+            <div class="modal-dialog modal-dialog-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="margin: 10px;">
+                        <h5 class="modal-title">Agregar Usuario</h5>
+                    </div>
+                    <div class="modal-body modal-body-xl" style="height: 60vh; overflow-y: auto;">
+                        <div class="form-control" style="margin: 10px;">
+                            <label for="user">
+                                User: <input type="text" placeholder="Usuario" id="AddUser">
+                            </label>
+                        </div>
+                        <div class="form-control" style="margin: 10px;">
+                            <label for="pass">
+                                Password: <input type="text" placeholder="Password" id="addPass">
+                            </label>
+                        </div>
+                        <div class="form-control" style="margin: 10px;">
+                            <label for="nombre">
+                                Password: <input type="text" placeholder="Nombre" id="addName">
+                            </label>
+                        </div>
+                        <div>
+                            <select class="form-select" style="margin: 10px;" id="addRol">
+                                <option selected>Rol</option>
+                                <option value="1">Administrador</option>
+                                <option value="2">Cliente</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary btn-block" id="btnAddOk" style="margin: 10px;">Agregar
+                                Usuario</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    </div>
     <div th:replace="views/layouts :: footer"></div>
-    <div th:replace="views/layouts :: js"></div>
+    <div th:replace="views/layouts :: jsAdmin"></div>
 </body>
+
 </html>

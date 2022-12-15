@@ -1,15 +1,99 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-    <head th:replace="views/layouts :: head"></head>
+
+<head th:replace="views/layouts :: head"></head>
+
 <body>
     <div th:replace="views/layouts :: navbar"></div>
-    <div style="margin: 75px;">
     <div class="container">
 
-        Binenvenido a Cliente.
-    </div>
-</div>
+        <div class="row">
+    
+          <div style="margin: 50px;">
+    
+            <h1 class="my-4">Nuestras<br>Marcas</h1>
+            <select name="marcas" id="idMarcas">
+              <option value="0" selected>Seleccione una Marca</option>
+              <option th:each="marca : ${marcas}" th:value="${marca.id}" th:text="${marca.brand}"></option>
+            </select>
+            <select name="equiposOrden" id="equiposOrden">
+              <option value="0" selected>Ordenar Por Precio</option>
+              <option value=1>Mayor Precio</option>
+              <option value=2>Menor Precio</option>
+            </select>
+
+            <button class="btn btn-success" id="btnGenerarPedido" th:idPedido="${pedido}">Generar Pedido</button>
+    
+          </div>
+    
+          <div>
+    
+            <div class="row" id="celularCardCliente">
+              <div th:each="celular : ${celulares}" class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 celularCardCliente" th:id="${celular[4]}">
+                  <img class="card-img-top" th:src="${celular[1]}" th:alt="${celular[2]}" id="celularImg">
+                  <div class="card-body">
+                    <h4 class="card-title">
+                    </h4>
+                    <h4 class="card-title">
+                      <h5><span th:text="${celular[2]}" id="celularTitle"></span></h5>
+    
+                    </h4>
+                    <h6>Precio: $<span th:text="${celular[3]}" id="celularPrice"></span></h5>
+                      <h6>Marca: <span th:text="${celular[0]}" id="celularBrand"></span></h5>
+                        <p class="card-text"></p>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted">
+                    </small>
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--######################################## Modal Pedido #######################################-->
+      <div th:fragment="modal-pedido" id="modal-pedido" class="modal fade"
+                tabindex="-1" role="dialog" aria-hidden="true" style="width: 100% !important;">
+                <div class="modal-dialog modal-dialog-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Nuevo Pedido</h5>
+                        </div>
+
+                        <div class="modal-body" style="height: 80vh; overflow-y: auto;">
+                            <table class="table table-success table-striped">
+                                <thead>
+                                    <th>Id Equipo</th>
+                                    <th>Marca</th>
+                                    <th>Nombre</th>
+                                    <th>Caracteristicas</th>
+                                    <th>Imagen</th>
+                                    <th>Precio</th>
+                
+                                </thead>
+                                <tbody id="filaPedido">
+                                    <!--<tr>
+                                        <th><span th:text="${pedido[0]}"></span></th>
+                                        <th><span th:text="${pedido[1]}"></span></th>
+                                        <th><span th:text="${pedido[2]}"></span></th>
+                                        <th><span th:text="${pedido[3]}"></span></th>
+                                        <th><span th:text="${pedido[4]}"></span></th>
+                                        <th><span th:text="${pedido[5]}"></span></th>
+                                        <th><img th:src="${pedido[5]}" width="100px" height="100px"/></th>
+                                        <th><span th:text="${pedido[6]}"></span></th>
+                                    </tr>-->
+                                </tbody>
+                            </table>
+                            <button class="btn btn-success" id="btnConfirmaPedido">Confirma Pedido</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <div th:replace="views/layouts :: footer"></div>
     <div th:replace="views/layouts :: js"></div>
 </body>
+
 </html>
